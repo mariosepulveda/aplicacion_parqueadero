@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Sono&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <title>&#128663 Mi Parqueadero Online</title> <!--&#128663-->
+</head>
+
+<body>
+
+    <!--Título-->
+    <div class="header_content">
+        <img src="../assets/Logo1.png">
+
+        <h1>Mi Parqueadero Online MVP</h1>
+    </div>
+
+    <!--Lista informativa y botón de nuevo-->
+    <span id="info_span">
+        <label id="label_saldo_total" for="fieldTotal">Total Caja: </label>
+        <input id="fieldTotal" type="text" disabled>
+    </span>
+    <button id="myBtn" class="btn-simple btn_body ">Nuevo </button> <!--&#10133-->
+    <button onclick="actualizarTabla()" class="btn-simple btn_body ">Actualizar </button> <!--&#128260-->
+    <button class="btn-simple btn_body " onclick="limpiarTodo()">Limpiar </button> <!--&#129529-->
+    <br>
+    <br>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+
+            <div class="form-header">
+                <span class="close">&times;</span>
+                <p>Ingreso Vehículo</p>
+            </div>
+
+            <div id="content-form">
+                <div class="cols_form">
+
+                <div class="col_md">
+                    <div class="form_item">
+
+                        <label for="type-select">Tipo Vehículo</label>
+                        <select name="types" class="select_field left" id="type-select" onchange="habilitarNumCascos()">
+                            <option value="">-- Seleccione el tipo de vehículo --</option>
+                            <option value="Automóvil">Automóvil</option> <!--&#128665-->
+                            <option value="Motocicleta">Motocicleta</option><!--&#127949-->
+                        </select>
+                    </div>
+    
+                    <div class="form_item">
+                        <label for="placa_input">Placa</label>
+                        <input id="placa_input" class="input_field date_field left" type="text" onblur="validUppercase()" placeholder="Ejemplo: XYZ 789" disabled="">
+                    </div>
+                </div>
+
+                <div class="col_md">
+                    <div class="form_item">
+                        <label for="valor_input">Ciudad Origen</label>
+                        <input id="ciudad_field" type="text" multiple name="origen" list="ciudad_origen" class="input_field right" placeholder="Ciudad / Origen" disabled>
+                        <datalist id="ciudad_origen">
+                          </datalist>
+                        <!--<input id="valor_input" class="input_field" type="text" required pattern="^[0-9,.]*[0-9]+?$" onblur="myFunction()" onfocus="focusfun()">-->
+                    </div>
+    
+                    <div class="form_item">
+                        <label for="type-select_cascos">Número Cascos</label>
+                        <select name="types" class="select_field right" id="type-select_cascos" disabled>
+                            <option value=0>-- Ninguno --</option>
+                            <option value=1>Uno</option>
+                            <option value=2>Dos</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+
+                <div class="form_item col_buttons">
+                    <button id="btnIngresar" onclick="crearIngreso()">Ingresar</button><!-- &#9989-->
+                    <button id="btn_cerrar_modal">Cancelar </button><!-- &#128683-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--La rejilla -->
+    <div id="myGrid" style="height: 450px; width: 100%;" class="ag-theme-balham"></div>
+
+
+    <!--Scripts necesarios para la funcionalidad de los botones de la regilla-->
+    <script src="./totalValueRenderer.js"></script>
+    <script src="./eliminarBtnRenderer.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
