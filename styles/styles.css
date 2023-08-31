@@ -4,6 +4,53 @@
     --font-grid_buttons_hover: rgb(0, 65, 205);
   } 
   
+
+     
+  .ag-theme-mycustomtheme .ag-root{
+    /* customise with CSS variables */
+    --ag-data-color: var(--font-grid_buttons_hover);
+    --ag-background-color:#fafcfffe;
+    --ag-row-hover-color:rgb(170, 250, 253);
+    --ag-row-height:30px;
+    --ag-header-height:50px;
+
+  }
+.ag-theme-mycustomtheme .ag-header {
+    /* or with CSS selectors targeting grid DOM elements */
+    /*font-style: italic;*/
+    --ag-secondary-foreground-color:#fafcfffe;
+    --ag-header-background-color:var(--background-green);
+    --ag-header-column-separator-display:block;
+    --ag-header-column-separator-height:50%;
+    --ag-header-column-separator-color:#fafcfffe;
+    --ag-header-column-resize-handle-display:none;
+    
+    
+}
+
+.ag-body .ag-center-cols-container{
+  font-size: medium;
+  --ag-borders: none;
+  --ag-border-color:white;
+}
+
+.ag-row-no-animation .ag-row {
+  border-bottom: #ffffff;
+}
+
+
+.ag-header-cell-label {
+    color:rgb(255, 255, 255);
+    
+}
+
+.ag-theme-mycustomtheme .ag-paging-panel {
+  background-color: #ffffff;
+  color: var(--background-green);
+  --ag-disabled-foreground-color:rgb(131, 131, 131);
+  --ag-icon-size: 100%;
+
+}
   
   body {
     font-family: 'Ubuntu', sans-serif;
@@ -204,23 +251,9 @@
   .ocultarRegilla {
     display: none;
   } */
-  
-  .ag-theme-acmecorp{
-    --ag-foreground-color: rgb(126, 46, 132);
-    --ag-background-color: rgb(249, 245, 227);
-    --ag-header-foreground-color: rgb(204, 245, 172);
-    --ag-header-background-color: rgb(209, 64, 129);
-    --ag-odd-row-background-color: rgb(0, 0, 0, 0.03);
-    --ag-header-column-resize-handle-color: rgb(126, 46, 132);
 
-    --ag-font-size: 17px;
-    --ag-font-family: monospace;
-  }
 
-  
-.ag-header-cell-label {
-    color:blue;
-}
+
   .btn-simple {
     font-family: 'Ubuntu', sans-serif;
     border: solid 2px var(--boton-border);
@@ -287,3 +320,7 @@
   /*
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(197,197,246,1) 0%, rgba(105,105,255,1) 0%, rgba(0,212,255,1) 100%);*/
+
+
+ 
+
