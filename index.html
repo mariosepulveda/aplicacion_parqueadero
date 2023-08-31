@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
-
-   
-   <link
-     rel="stylesheet"
-     href="https://cdn.jsdelivr.net/npm/ag-grid-community@29.0.0/styles/ag-theme-alpine.css" />
+<!-- Include the JS for AG Grid -->
+<script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+<!-- Include the core CSS, this is needed by the grid -->
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css"/>
+<!-- Include the theme CSS, only need to import the theme you are going to use -->
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-alpine.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Sono&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
@@ -99,7 +101,7 @@
     </div>
 
     <!--La rejilla -->
-    <div id="myGrid" style="height: 450px; width: 100%;" class="ag-theme-alpine"></div>
+    <div id="myGrid" style="height: 325px; width: 100%;" class="ag-theme-mycustomtheme"></div>
 
 
     <!--Scripts necesarios para la funcionalidad de los botones de la regilla-->
