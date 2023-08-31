@@ -1,0 +1,289 @@
+:root {
+    --background-green: rgb(90, 137, 199); /*verde rgb(62, 139, 75) azul rgb(40, 120, 212)*/
+    --boton-border: rgb(90, 137, 199); /*verde rgb(123, 206, 141), azulrgb(40, 120, 212)*/
+    --font-grid_buttons_hover: rgb(0, 65, 205);
+  } 
+  
+  
+  body {
+    font-family: 'Ubuntu', sans-serif;
+    /*background: rgb(0,129,238);*/
+    /*background: linear-gradient(90deg, rgba(0,129,238,0.45702030812324934) 100%, rgba(73,73,255,1) 100%);*/
+    /*background: rgb(2,0,36);*/
+    
+    /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(197,197,246,1) 0%, rgba(105,105,255,1) 41%, rgba(0,212,255,1) 100%);*/
+  }
+  
+  .header_content {
+    display:flex;
+    align-items:center;
+  }
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    color: rgb(0,129,238);
+    letter-spacing: 3px;
+  
+  }
+  /*
+  color: rgb(12, 36, 13);
+  */
+  
+  #info_span {
+    padding: 13px;
+    margin-right: 10px;
+    border: solid 3px var(--boton-border);
+    border-radius: 8px;
+    background-color: white;
+    font-size: larger;
+  }
+  
+  #label_saldo_total {
+    color:var(--font-grid_buttons_hover); /*rgb(12, 36, 13)*/
+    
+  }
+  
+  #fieldTotal {
+    text-align: right;
+    font-weight: bolder;
+    font-size: medium;
+    color:var(--font-grid_buttons_hover);
+    border: none;
+    background-color: transparent;/*rgb(255, 255, 255)*/
+    height: 26px;
+    padding-right: 10px;
+    font-size: large;
+  }
+  
+  .fieldTotalRed {
+    text-align: right;
+    font-weight: bolder;
+    font-size: medium;
+    color:rgb(253, 6, 26) !important;
+    border: solid 1px var(--boton-border);
+    border-radius: 3px;
+    height: 26px;
+    padding-right: 10px; 
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    margin-right: 10px;
+    color: #fefefe;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: rgb(12, 36, 13);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /*contenido del modal*/
+  
+  .form-header {
+    background-color: var(--background-green);
+    padding-top:25px;
+    height: 50px;
+    margin-bottom:  30px;
+    color: #fefefe;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 2px;
+    font-size: larger;
+    font-weight: bolder;
+    border-radius: 4px;
+  }
+  
+  .modal-content p {
+    width: 100% ;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  /*campos del modal*/
+  .input_field {
+    font-family: 'Sono', sans-serif;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 44px;
+    border: solid 1px var(--boton-border);
+    border-radius: 3px;
+    padding: 0 10px;
+  
+  }
+  .right {
+    width: 95%;
+  }
+  
+  .date_field{
+    font-family: 'Sono', sans-serif;
+    margin-bottom: 20px;
+    width: 95%;
+    height: 44px;
+    border: solid 1px var(--boton-border);
+    border-radius: 3px;
+  }
+  
+  .select_field {
+    font-family: 'Sono', sans-serif;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 46px;
+    border: solid 1px var(--boton-border);
+    border-radius: 3px;
+  }
+  
+  .col_buttons {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  
+  .col_buttons button {
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 20px;
+    width: max-content;
+    height: 36px;
+    border: solid 2px var(--boton-border);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0 15px;
+    background-color: var(--background-green);/*rgb(38, 129, 52) alternativa de color*/
+    color:rgb(255,255,255);
+  }
+  
+  .col_buttons button:hover {
+    font-weight: bold;
+    color:var(--font-grid_buttons_hover);
+    background-color: white;
+  }
+  
+  input:invalid {
+    border: red solid 5px;
+    
+  
+  }
+  /*la rejilla*/
+  #myGrid {
+    font-family: 'Sono', sans-serif;
+    font-weight: bold;
+    margin-top: 3px;
+  }
+  /* 
+  .ocultarRegilla {
+    display: none;
+  } */
+  
+  .ag-theme-acmecorp{
+    --ag-foreground-color: rgb(126, 46, 132);
+    --ag-background-color: rgb(249, 245, 227);
+    --ag-header-foreground-color: rgb(204, 245, 172);
+    --ag-header-background-color: rgb(209, 64, 129);
+    --ag-odd-row-background-color: rgb(0, 0, 0, 0.03);
+    --ag-header-column-resize-handle-color: rgb(126, 46, 132);
+
+    --ag-font-size: 17px;
+    --ag-font-family: monospace;
+  }
+
+  
+.ag-header-cell-label {
+    color:blue;
+}
+  .btn-simple {
+    font-family: 'Ubuntu', sans-serif;
+    border: solid 2px var(--boton-border);
+    border-radius: 3px;
+    /*color:  rgb(12, 36, 13);*/
+    cursor: pointer;
+    height: 24px;
+    width: 50%;
+    padding: 0 5px;
+  
+    background-color: var(--background-green); /**COLOR ALTERNATIVO rgb(38, 129, 52)*/
+    color:rgb(255,255,255);
+  
+  }
+  
+  .btn-simple:hover {
+    font-weight: bold;
+    color:var(--font-grid_buttons_hover);
+    background-color: white;
+    letter-spacing: 1px;
+  }
+  
+  .btn_body {
+    height: 40px;
+    margin-right: 5px;
+    width: 120px;
+    font-size: large;
+    font-weight: lighter;
+    border-radius: 5px;
+  }
+  
+  .align-right {
+    text-align: right;
+  }
+  
+  .align-center{
+    text-align: center;
+  }
+  .cols_form {
+    width: 100%;
+    display: flex;
+    color: rgb(12, 36, 13);
+  }
+  
+  .col_md{
+    width: 50%;
+    margin-right: 20px;
+    margin-left: 10px;
+  }
+  
+  select:focus, input:focus, input[type]:focus {
+    border-color: rgb(0, 208, 255);/**/
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(0, 238, 255, 0.6);
+    outline: 0 none;
+  }
+  
+  /*
+  button:focus {
+    border-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(0, 238, 255, 0.6);
+    outline: 0 none;
+  } 
+  */
+  /*
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(197,197,246,1) 0%, rgba(105,105,255,1) 0%, rgba(0,212,255,1) 100%);*/
