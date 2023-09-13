@@ -259,7 +259,7 @@
     background-color: white;
   }
   
-  input:invalid:required {
+  input:invalid {
     border: red solid 2px;
   
   }
