@@ -78,12 +78,16 @@
   */
   
   #info_span {
+    display: flex;
+    width: 90%;
     padding: 13px;
     margin-right: 10px;
-    border: solid 3px var(--boton-border);
+    border: solid 2px var(--boton-border);
     border-radius: 8px;
     background-color: white;
     font-size: larger;
+    align-items: baseline;
+    justify-content: space-between;
   }
   
   #label_saldo_total {
@@ -113,6 +117,25 @@
     height: 26px;
     padding-right: 10px; 
   }
+
+.container-span {
+  width: 50%;
+}
+
+.container-info {
+  display: flex;
+  height: 80px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-options {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-evenly;
+}
   
   /* The Modal (background) */
   .modal {
@@ -236,9 +259,8 @@
     background-color: white;
   }
   
-  input:invalid {
-    border: red solid 5px;
-    
+  input:invalid:required {
+    border: red solid 2px;
   
   }
   /*la rejilla*/
