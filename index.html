@@ -30,13 +30,19 @@
     </div>
 
     <!--Lista informativa y botón de nuevo-->
-    <span id="info_span">
-        <label id="label_saldo_total" for="fieldTotal">Total Caja: </label>
-        <input id="fieldTotal" type="text" disabled>
-    </span>
-    <button id="myBtn" class="btn-simple btn_body ">Nuevo </button> <!--&#10133-->
-    <button onclick="actualizarTabla()" class="btn-simple btn_body ">Actualizar </button> <!--&#128260-->
-    <button class="btn-simple btn_body " onclick="limpiarTodo()">Limpiar </button> <!--&#129529-->
+    <div class="container-info">
+        <div class="container-span">
+            <span id="info_span">
+                <label id="label_saldo_total" for="fieldTotal">Total Caja: </label>
+                <input id="fieldTotal" type="text" disabled>
+            </span>
+        </div>
+        <div class="container-options">
+        <button id="myBtn" class="btn-simple btn_body ">Nuevo </button> <!--&#10133-->
+        <button onclick="actualizarTabla()" class="btn-simple btn_body ">Actualizar </button> <!--&#128260-->
+        <button class="btn-simple btn_body " onclick="limpiarTodo()">Limpiar </button> <!--&#129529-->
+        </div>
+    </div>
     <br>
     <br>
 
