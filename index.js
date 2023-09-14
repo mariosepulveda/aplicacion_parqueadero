@@ -170,7 +170,7 @@ function validUppercase() {
     ciudad_field.disabled = false;
 
     placaField.disabled = false;
-    if (tipoVehiculoField.value === "Motocicleta") {
+    if (tipoVehiculoField.value === "Moto") {
       ciudad_field.value = 'Colombia';
       //ciudad_field.disabled = true;
       numCascosField.disabled = false;
@@ -219,7 +219,7 @@ function habilitarNumCascos() {
 crearIngreso = () => {
   btnIngresar.disabled = true;
 
-  if (tipoVehiculoField.value === "Motocicleta") {
+  if (tipoVehiculoField.value === "Moto") {
     if (placaField.value !== "" && numCascosField.value !== "" && ciudad_field.value !== "") {
 
       let hoy = new Date();
@@ -254,7 +254,7 @@ crearIngreso = () => {
       btnIngresar.disabled = false;
     }
 
-  } else if (tipoVehiculoField.value === "Automóvil") {
+  } else if (tipoVehiculoField.value === "Carro") {
     if (placaField.value !== "" && ciudad_field.value !== "") {
       let hoy = new Date();
       let fecha = `${hoy.getFullYear()}-${agregarCeroSiEsNecesario(hoy.getMonth() + 1)}-${agregarCeroSiEsNecesario(hoy.getDate())}`;//let fecha =  `${hoy.getFullYear()} + '-' + ${(hoy.getMonth() + 1)} + '-' + ${hoy.getDate()}`;
@@ -319,7 +319,7 @@ function actualizarTabla() {
       totalHora = 0;
     }
 
-    if(item.tipo === 'Automóvil'){
+    if(item.tipo === 'Carro'){
       if (m < 30 && h === 0) {
         item.total = 1200 + totalHora;
       } else if (m >= 30 && h === 0) {
@@ -327,7 +327,7 @@ function actualizarTabla() {
       } else if (h > 0) {
         item.total = totalHora + (83.333 * Math.ceil((m) / 5));
       }
-    }else if (item.tipo === 'Motocicleta'){
+    }else if (item.tipo === 'Moto'){
       if (m < 30 && h === 0) {
         item.total = 600 + totalHora;
       } else if (m >= 30 && h === 0) {
