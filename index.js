@@ -83,7 +83,6 @@ rowData = JSON.parse(localStorage.getItem("user"));
 if (rowData === null) {
   rowData = [];
 }
-//console.log("row data",rowData);
 /**    { id:1, tipo:"carro", placa:"XYZ 123", ciudad:"Medellín", cascos:0, hora:"7:03:29", total:2300.00, fecha:"28-11-2022"},
  */
 
@@ -213,7 +212,6 @@ function habilitarNumCascos() {
   placaField.value = "";
   placaField.disabled = true;
 
-  //console.log("numCascosField",tipoVehiculoField.value);
   validUppercase();
 
 }
@@ -223,7 +221,7 @@ crearIngreso = () => {
 
   if (tipoVehiculoField.value === "Motocicleta") {
     if (placaField.value !== "" && numCascosField.value !== "" && ciudad_field.value !== "") {
-      //console.log("click en ingreso btn");
+
       let hoy = new Date();
       let fecha = `${hoy.getFullYear()}-${agregarCeroSiEsNecesario(hoy.getMonth() + 1)}-${agregarCeroSiEsNecesario(hoy.getDate())}`;//let fecha =  `${hoy.getFullYear()} + '-' + ${(hoy.getMonth() + 1)} + '-' + ${hoy.getDate()}`;let fecha =  hoy.getFullYear() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getDate();
       let hora = `${agregarCeroSiEsNecesario(hoy.getHours())}:${agregarCeroSiEsNecesario(hoy.getMinutes())}:${agregarCeroSiEsNecesario(hoy.getSeconds())}`;// hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds()let hora = `${agregarCeroSiEsNecesario(hoy.getHours())}:${agregarCeroSiEsNecesario(hoy.getMinutes())}:${agregarCeroSiEsNecesario(hoy.getSeconds())}`;
@@ -239,12 +237,10 @@ crearIngreso = () => {
         hora: hora,
         total: 600,
       }
-      //console.log("nuevo registro a guardar en el rowData:",nuevoRegistro);
       setTimeout(() => {
         rowData.push(nuevoRegistro);
         localStorage.setItem("user", JSON.stringify(rowData));
 
-        //console.log("rowdatanuevo:",rowData);
         //gridOptions.api.setRowData(gridOptions.rowData);
         actualizarTabla();
 
@@ -260,7 +256,6 @@ crearIngreso = () => {
 
   } else if (tipoVehiculoField.value === "Automóvil") {
     if (placaField.value !== "" && ciudad_field.value !== "") {
-      //console.log("click en ingreso btn");
       let hoy = new Date();
       let fecha = `${hoy.getFullYear()}-${agregarCeroSiEsNecesario(hoy.getMonth() + 1)}-${agregarCeroSiEsNecesario(hoy.getDate())}`;//let fecha =  `${hoy.getFullYear()} + '-' + ${(hoy.getMonth() + 1)} + '-' + ${hoy.getDate()}`;
       let hora = `${agregarCeroSiEsNecesario(hoy.getHours())}:${agregarCeroSiEsNecesario(hoy.getMinutes())}:${agregarCeroSiEsNecesario(hoy.getSeconds())}`;// hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds()
@@ -276,11 +271,9 @@ crearIngreso = () => {
         hora: hora,
         total: 600,
       }
-      //console.log("nuevo registro a guardar en el rowData:",nuevoRegistro);
       setTimeout(() => {
         rowData.push(nuevoRegistro);
         localStorage.setItem("user", JSON.stringify(rowData));
-        //console.log("rowdatanuevo:",rowData);
 
         //gridOptions.api.setRowData(rowData);
         actualizarTabla();
@@ -297,8 +290,6 @@ crearIngreso = () => {
 }
 
 function actualizarTabla() {
-
-  //console.log("entro a actualizar tabla");
   //onBtShowLoading();
   var tam = gridOptions.rowData.length;
   //console.log("tamanio rowdata:",tam);
@@ -346,27 +337,15 @@ function actualizarTabla() {
       }
     }
 
-
     //console.log("total: $",item.total);
 
-    //m < 30 ? item.total += totalHora : item.total = 600 + (100 * Math.ceil((m-30)/5));
-    //console.log("milisegundos ms:",milisec);
-    //console.log("segundos s:",s);
-    //console.log("Minutos min:",m);
-    //console.log("hora Hrs:",h);
     nuevoArray.push(item);
-    //console.log("total:",nuevoArray);
-    //window.localStorage.setItem("user", JSON.stringify(nuevoArray));
+    //window.localStorage.setItem("user", JSON.stringify(nuevoArray));// version vieja 
     window.localStorage.setItem("user", JSON.stringify(nuevoArray));
-
 
   });
   gridOptions.api.setRowData(rowData);
-  /* 
-    setTimeout(() => {
-      //onBtHide();
-      gridOptions.api.setRowData(rowData);
-    }, 500); */
+
 }
 
 function cerrarModal() {
