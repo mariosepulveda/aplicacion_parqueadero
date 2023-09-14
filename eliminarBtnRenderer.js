@@ -6,7 +6,7 @@ class EliminarBtnRenderer {
     this.eGui.innerHTML = `
           <span>
               <span class="my-value"></span>
-              <button class="btn-simple">Terminar </button>
+              <button class="btn-simple btn-terminar">Terminar </button>
           </span>
        `;//&#9201;
 

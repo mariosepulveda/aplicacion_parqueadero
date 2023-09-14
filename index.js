@@ -75,7 +75,7 @@ var columnDefs = [
     },
   },
   { field: 'Operación 1', minWidth: 200, cellRenderer: 'totalValueRenderer', sortable: false, filter: false, cellClass: 'align-center', suppressMovable: true },
-  { field: 'Operación 2', minWidth: 200, cellRenderer: 'eliminarBtnRenderer', sortable: false, filter: false, cellClass: 'align-center', suppressMovable: true },
+  { field: 'Operación 2', minWidth: 120, cellRenderer: 'eliminarBtnRenderer', sortable: false, filter: false, cellClass: 'align-center', suppressMovable: true },
 ];
 
 var rowData = [];
