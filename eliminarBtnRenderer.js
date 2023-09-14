@@ -6,7 +6,7 @@ class EliminarBtnRenderer {
     this.eGui.innerHTML = `
           <span>
               <span class="my-value"></span>
-              <button class="btn-simple btn-terminar">Terminar </button>
+              <button class="btn-simple btn-terminar">Finalizar</button>
           </span>
        `;//&#9201;
 
@@ -27,7 +27,7 @@ class EliminarBtnRenderer {
       let idRegistro = params.data.id;
       let value = [...JSON.parse(window.localStorage.getItem("user"))];
       let pos = 0; 
-      console.log("local storage desde el boton",idRegistro);
+      //console.log("local storage desde el boton",idRegistro);
 
       var totalCaja = 0;
 
@@ -46,7 +46,7 @@ class EliminarBtnRenderer {
       window.localStorage.setItem("totalCaja", totalCaja);
 
 
-      console.log("total caja:",totalCaja);
+      //console.log("total caja:",totalCaja);
 
 
       value.splice(pos,1);

@@ -32,12 +32,12 @@ span.onclick = function () {
     }
   } */
 
-  if(window.localStorage.getItem("totalCaja")!== undefined && window.localStorage.getItem("totalCaja")!== null){
-    console.log("entro a if:",window.localStorage.getItem("totalCaja"));
+  if(localStorage.getItem("totalCaja")!== undefined && localStorage.getItem("totalCaja")!== null){
+    //console.log("entro a if:",window.localStorage.getItem("totalCaja"));
     
   }else {
-    console.log("entro a if:",window.localStorage.getItem("totalCaja"));
-    window.localStorage.setItem("totalCaja",0);
+    //console.log("entro a if:",window.localStorage.getItem("totalCaja"));
+    localStorage.setItem("totalCaja",0);
   }
 
 /**para renderizar dinamicamente el datalist de las ciudades de origen */
@@ -62,6 +62,7 @@ cerrarModalBtn.onclick = function () {
 }
 
 var columnDefs = [
+  { field: 'Opción 1', minWidth: 120, cellRenderer: 'eliminarBtnRenderer', sortable: false, filter: false, cellClass: 'align-center', suppressMovable: true },
   { headerName: "Tipo", field: "tipo", sortable: true, filter: true,suppressMovable: true},
   { headerName: "Placa", field: "placa", sortable: true, filter: true, suppressMovable: true },
   { headerName: "Origen", field: "ciudad", sortable: true, filter: true, suppressMovable: true },
@@ -74,12 +75,11 @@ var columnDefs = [
       return formatNumber(params.value);
     },
   },
-  { field: 'Operación 1', minWidth: 200, cellRenderer: 'totalValueRenderer', sortable: false, filter: false, cellClass: 'align-center', suppressMovable: true },
-  { field: 'Operación 2', minWidth: 120, cellRenderer: 'eliminarBtnRenderer', sortable: false, filter: false, cellClass: 'align-center', suppressMovable: true },
+  { field: 'Otras Opciones', minWidth: 200, cellRenderer: 'totalValueRenderer', sortable: false, filter: false, cellClass: 'align-center', suppressMovable: true },
 ];
 
 var rowData = [];
-rowData = JSON.parse(window.localStorage.getItem("user"));
+rowData = JSON.parse(localStorage.getItem("user"));
 if (rowData === null) {
   rowData = [];
 }
@@ -129,7 +129,7 @@ function formatNumber(number) {
 for (let i = 0; i < rowData.length; i++) {
   saldoTotal += rowData[i].total;
 } */
-let saldoTotal = window.localStorage.getItem("totalCaja");
+let saldoTotal = localStorage.getItem("totalCaja");
 var elementSaldoTotal = document.getElementById('fieldTotal');
 
 //para darle formato de moneda al texto del campo
@@ -242,7 +242,7 @@ crearIngreso = () => {
       //console.log("nuevo registro a guardar en el rowData:",nuevoRegistro);
       setTimeout(() => {
         rowData.push(nuevoRegistro);
-        window.localStorage.setItem("user", JSON.stringify(rowData));
+        localStorage.setItem("user", JSON.stringify(rowData));
 
         //console.log("rowdatanuevo:",rowData);
         //gridOptions.api.setRowData(gridOptions.rowData);
@@ -279,7 +279,7 @@ crearIngreso = () => {
       //console.log("nuevo registro a guardar en el rowData:",nuevoRegistro);
       setTimeout(() => {
         rowData.push(nuevoRegistro);
-        window.localStorage.setItem("user", JSON.stringify(rowData));
+        localStorage.setItem("user", JSON.stringify(rowData));
         //console.log("rowdatanuevo:",rowData);
 
         //gridOptions.api.setRowData(rowData);
@@ -298,7 +298,7 @@ crearIngreso = () => {
 
 function actualizarTabla() {
 
-  console.log("entro a actualizar tabla");
+  //console.log("entro a actualizar tabla");
   //onBtShowLoading();
   var tam = gridOptions.rowData.length;
   //console.log("tamanio rowdata:",tam);
@@ -356,7 +356,9 @@ function actualizarTabla() {
     //console.log("hora Hrs:",h);
     nuevoArray.push(item);
     //console.log("total:",nuevoArray);
+    //window.localStorage.setItem("user", JSON.stringify(nuevoArray));
     window.localStorage.setItem("user", JSON.stringify(nuevoArray));
+
 
   });
   gridOptions.api.setRowData(rowData);
@@ -395,7 +397,7 @@ const agregarCeroSiEsNecesario = valor => {
  */
 function limpiarTodo() {
   //alert(`!Advertencia!. Se borrarán todos los datos almacenados.`);
-  window.localStorage.clear();
+  localStorage.clear();
   //window.localStorage.removeItem('user');
   gridOptions.rowData = [];
   actualizarTabla();
@@ -405,6 +407,6 @@ function limpiarTodo() {
 }
 
 window.onload = function () {
-  setInterval(actualizarTabla, 60000);
+  setInterval(actualizarTabla, 5000);
   //console.log("entro a actualizar tabla");
 }

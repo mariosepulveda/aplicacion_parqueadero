@@ -6,11 +6,11 @@ class TotalValueRenderer {
     this.eGui.innerHTML = `
           <span>
               <span class="my-value"></span>
-              <button id="btn_editar"class="btn-simple">Editar </button>
+              <button id="btn_editar"class="btn-simple">Modificar</button>
           </span>
           <span>
           <span class="my-value"></span>
-          <button id="btn_cancelar" class="btn-simple">Cancelar </button>
+          <button id="btn_cancelar" class="btn-simple">Eliminar</button>
       </span>
        `; // &#128395 // &#128465
 
@@ -41,7 +41,7 @@ class TotalValueRenderer {
               let idRegistro = params.data.id;
               let value = [...JSON.parse(window.localStorage.getItem("user"))];
               let pos = 0; 
-              console.log("local storage desde el boton",idRegistro);
+              //console.log("local storage desde el boton",idRegistro);
 
 
               value.map((item,index)=>{
