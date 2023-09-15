@@ -65,22 +65,22 @@
 
                         <label for="type-select">Tipo Vehículo</label>
                         <select name="types" class="select_field left" id="type-select" onchange="habilitarNumCascos()">
-                            <option value="">-- Seleccione el tipo de vehículo --</option>
-                            <option value="Carro">Carro</option> <!--&#128665-->
-                            <option value="Moto">Moto</option><!--&#127949-->
+                            <option value=""> Ninguno</option>
+                            <option value="Carro"> Carro</option> <!--&#128665-->
+                            <option value="Moto"> Moto</option><!--&#127949-->
                         </select>
                     </div>
     
                     <div class="form_item">
                         <label for="placa_input">Placa</label>
-                        <input id="placa_input" class="input_field date_field left" type="text" onblur="validUppercase()" placeholder="Ejemplo: XYZ 789" disabled="">
+                        <input id="placa_input" class="date_field left" type="text" onblur="validUppercase()" placeholder="Ejemplo: XYZ 789" disabled="">
                     </div>
                 </div>
 
                 <div class="col_md">
                     <div class="form_item">
                         <label for="valor_input">Ciudad Origen</label>
-                        <input id="ciudad_field" type="text" multiple name="origen" list="ciudad_origen" class="input_field right" placeholder="Ciudad / Origen" disabled>
+                        <input id="ciudad_field" type="text" multiple name="origen" list="ciudad_origen" class="input_field " placeholder="Ciudad / Origen" disabled>
                         <datalist id="ciudad_origen">
                           </datalist>
                         <!--<input id="valor_input" class="input_field" type="text" required pattern="^[0-9,.]*[0-9]+?$" onblur="myFunction()" onfocus="focusfun()">-->
@@ -107,7 +107,7 @@
     </div>
 
     <!--La rejilla -->
-    <div id="myGrid" style="height: 325px; width: 100%; margin:3px 0 0 0" class="ag-theme-mycustomtheme"></div>
+    <div id="myGrid" style="height: 325px; width: 100%; margin:8px 0 0 0" class="ag-theme-mycustomtheme"></div>
 
 
     <!--Scripts necesarios para la funcionalidad de los botones de la regilla-->
