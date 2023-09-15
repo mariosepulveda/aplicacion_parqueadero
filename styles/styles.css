@@ -202,20 +202,16 @@
   }
   
   /*campos del modal*/
-  .input_field {
+
+  .select_field {
     font-family: 'Sono', sans-serif;
     margin-bottom: 20px;
-    width: 100%;
-    height: 44px;
+    width: 92%;
+    height: 46px;
     border: solid 1px var(--boton-border);
     border-radius: 3px;
-    padding: 0 10px;
-  
   }
-  .right {
-    width: 95%;
-  }
-  
+
   .date_field{
     font-family: 'Sono', sans-serif;
     margin-bottom: 20px;
@@ -225,15 +221,22 @@
     border-radius: 3px;
   }
   
-  .select_field {
+  .input_field {
     font-family: 'Sono', sans-serif;
     margin-bottom: 20px;
-    width: 100%;
-    height: 46px;
+    width: 88%;
+    height: 44px;
     border: solid 1px var(--boton-border);
     border-radius: 3px;
+    padding: 0 10px;
+  
+  }
+
+  .right {
+    width: 96%;
   }
   
+
   .col_buttons {
     display: flex;
     justify-content: space-between;
@@ -319,14 +322,23 @@
   .cols_form {
     width: 100%;
     display: flex;
+    flex-direction: column;
     color: rgb(12, 36, 13);
     margin-top: 40px;
   }
   
   .col_md{
-    width: 50%;
+    width: 100%;
     margin-right: 20px;
     margin-left: 10px;
+    
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+
+  .form_item {
+    width: 80%;
   }
   
   select:focus, input:focus, input[type]:focus {
@@ -346,6 +358,10 @@
     font-size: inherit;
     cursor: inherit;
     line-height: inherit;
+  }
+
+  .btn-terminar{
+    width: 100%;
   }
   
   /*
@@ -384,12 +400,27 @@
       width: 100%;
       margin: 20px 0 20px 0;
     }
-  }
 
-  .btn-terminar{
-    width: 100%;
-  }
+    .cols_form {
+      width: 100%;
+      display: flex;
+      color: rgb(12, 36, 13);
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
 
+    .col_md {
+      width: 100%;
+      /* margin-right: 20px; */
+      /* margin: auto; */
+      justify-content: center;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-content: stretch;
+      align-items: center;
+    }
+  }
 
   @media screen and (min-width:320px) and (max-width:640px) {
     img {
@@ -415,5 +446,25 @@
     .container-options {
       width: 100%;
       margin: 20px 0 20px 0;
+    }
+
+    .cols_form {
+      width: 100%;
+      display: flex;
+      color: rgb(12, 36, 13);
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .col_md {
+      width: 100%;
+      /* margin-right: 20px; */
+      /* margin: auto; */
+      justify-content: center;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-content: stretch;
+      align-items: center;
     }
   }
