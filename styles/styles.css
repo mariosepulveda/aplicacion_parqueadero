@@ -4,6 +4,32 @@
     --font-grid_buttons_hover: rgb(0, 65, 205);
   } 
 
+    /*la rejilla*/
+    #myGrid {
+      font-family: 'Sono', sans-serif;
+      font-weight: bold;
+      margin-top: 3px;
+      --ag-data-color: var(--font-grid_buttons_hover);
+      --ag-background-color:#fafcfffe;
+      --ag-row-hover-color:rgb(170, 250, 253);
+      --ag-header-height:50px;
+    }
+    /* 
+    .ocultarRegilla {
+      display: none;
+    } */
+
+    #myGrid .ag-header {
+      --ag-secondary-foreground-color:#fafcfffe;
+      --ag-header-background-color:var(--background-green);
+      --ag-header-column-separator-display:block;
+      --ag-header-column-separator-height:50%;
+      --ag-header-column-separator-color:#fafcfffe;
+      --ag-header-column-resize-handle-display:none;
+      
+    }
+  
+
   .ag-cell, .ag-full-width-row .ag-cell-wrapper.ag-row-group {
 
     --ag-range-selection-border-color:transparent;
@@ -16,6 +42,7 @@
     --ag-header-height:50px;
 
   }
+  
 .ag-theme-mycustomtheme .ag-header {
     /* or with CSS selectors targeting grid DOM elements */
     /*font-style: italic;*/
@@ -52,6 +79,8 @@
   --ag-icon-size: 100%;
 
 }
+
+
   
   body {
     font-family: 'Ubuntu', sans-serif;
@@ -268,16 +297,6 @@
     border: red solid 2px;
   
   }
-  /*la rejilla*/
-  #myGrid {
-    font-family: 'Sono', sans-serif;
-    font-weight: bold;
-    margin-top: 3px;
-  }
-  /* 
-  .ocultarRegilla {
-    display: none;
-  } */
 
 
 
