@@ -1,7 +1,30 @@
+/*paleta de colores nueva 
+#6096B4
+#93BFCF
+#BDCDD6
+#EEE9DA
+
+colores para fuentes
+#27374D
+#526D82
+#9DB2BF
+#DDE6ED
+
+#040D12
+#183D3D
+#5C8374
+#93B1A6
+*/
+
 :root {
-    --background-green: rgb(90, 137, 199); /*verde rgb(62, 139, 75) azul rgb(40, 120, 212)*/
-    --boton-border: rgb(90, 137, 199); /*verde rgb(123, 206, 141), azulrgb(40, 120, 212)*/
-    --font-grid_buttons_hover: rgb(0, 65, 205);
+    --background-green:#6096B4; /*verde rgb(62, 139, 75) azul rgb(40, 120, 212)*/ /* rgb(90, 137, 199)*/
+    --boton-border: #6096B4;
+    --input-field-border: #BDCDD6; /*verde rgb(123, 206, 141), azulrgb(40, 120, 212)*/ /* rgb(90, 137, 199)*/
+    --font-grid_buttons_hover: #6096B4;  /*rgb(0, 65, 205)*/
+    --principal-background: #f8f8f8;
+    --secondary-grid-background: #DDE6ED;
+    --font-principal-color:#27374D;
+
   } 
 
     /*la rejilla*/
@@ -9,8 +32,8 @@
       font-family: 'Sono', sans-serif;
       font-weight: bold;
       margin-top: 3px;
-      --ag-data-color: var(--font-grid_buttons_hover);
-      --ag-background-color:#fafcfffe;
+      --ag-data-color: var(--font-principal-color);
+      --ag-background-color:var(--principal-background);/*#fafacfffe*/
       --ag-row-hover-color:rgb(170, 250, 253);
       --ag-header-height:50px;
     }
@@ -81,6 +104,8 @@
 }
 
 
+
+
   
   body {
     font-family: 'Ubuntu', sans-serif;
@@ -89,6 +114,7 @@
     /*background: rgb(2,0,36);*/
     
     /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(197,197,246,1) 0%, rgba(105,105,255,1) 41%, rgba(0,212,255,1) 100%);*/
+    background-color: var(--principal-background);
   }
   
   .header_content {
@@ -99,7 +125,7 @@
     width: 100%;
     text-align: center;
     font-family: 'Roboto Slab', serif;
-    color: rgb(0,129,238);
+    color: var(--font-principal-color); /* color pricipal fuentes*/
     letter-spacing: 3px;
   
   }
@@ -112,16 +138,16 @@
     width: 90%;
     padding: 13px;
     margin-right: 10px;
-    border: solid 2px var(--boton-border);
+    border: solid 2px var(--input-field-border);
     border-radius: 8px;
-    background-color: white;
+    background-color: var(--principal-background);
     font-size: larger;
     align-items: baseline;
     justify-content: space-between;
   }
   
   #label_saldo_total {
-    color:var(--font-grid_buttons_hover); /*rgb(12, 36, 13)*/
+    color:var(--font-principal-color); /*rgb(12, 36, 13)*/
     
   }
   
@@ -129,7 +155,7 @@
     text-align: right;
     font-weight: bolder;
     font-size: medium;
-    color:var(--font-grid_buttons_hover);
+    color:var(--font-principal-color);
     border: none;
     background-color: transparent;/*rgb(255, 255, 255)*/
     height: 26px;
@@ -143,7 +169,7 @@
     font-weight: bolder;
     font-size: medium;
     color:rgb(253, 6, 26) !important;
-    border: solid 1px var(--boton-border);
+    border: solid 1px var(--input-field-border);
     border-radius: 3px;
     height: 26px;
     padding-right: 10px; 
@@ -172,7 +198,7 @@
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 100; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -185,7 +211,7 @@
   
   /* Modal Content */
   .modal-content {
-    background-color: #fefefe;
+    background-color: var(--principal-background);
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -195,7 +221,7 @@
   /* The Close Button */
   .close {
     margin-right: 10px;
-    color: #fefefe;
+    color: var(--principal-background);
     float: right;
     font-size: 30px;
     font-weight: bold;
@@ -215,7 +241,7 @@
     padding-top:25px;
     height: 50px;
     margin-bottom:  30px;
-    color: #fefefe;
+    color:var(--principal-background);/*#fefefe*/
     font-family: 'Roboto Slab', serif;
     letter-spacing: 2px;
     font-size: larger;
@@ -237,7 +263,7 @@
     margin-bottom: 20px;
     width: 92%;
     height: 46px;
-    border: solid 1px var(--boton-border);
+    border: solid 1px var(--input-field-border);
     border-radius: 3px;
   }
 
@@ -246,8 +272,9 @@
     margin-bottom: 20px;
     width: 95%;
     height: 44px;
-    border: solid 1px var(--boton-border);
+    border: solid 1px var(--input-field-border);
     border-radius: 3px;
+    background-color: var(--principal-background);
   }
   
   .input_field {
@@ -255,9 +282,11 @@
     margin-bottom: 20px;
     width: 88%;
     height: 44px;
-    border: solid 1px var(--boton-border);
+    border: solid 1px var(--input-field-border);
     border-radius: 3px;
     padding: 0 10px;
+    background-color: var(--principal-background);
+
   
   }
 
@@ -284,18 +313,18 @@
     cursor: pointer;
     padding: 0 15px;
     background-color: var(--background-green);/*rgb(38, 129, 52) alternativa de color*/
-    color:rgb(255,255,255);
+    color: var(--principal-background);
   }
   
   .col_buttons button:hover {
     font-weight: bold;
     color:var(--font-grid_buttons_hover);
-    background-color: white;
+    background-color: var(--principal-background);
   }
   
   input:invalid {
-    border: red solid 2px;
-  
+    border: rgb(252, 67, 31) solid 1px;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(252, 55, 16, 0.5);
   }
 
 
@@ -311,14 +340,14 @@
     padding: 0 5px;
   
     background-color: var(--background-green); /**COLOR ALTERNATIVO rgb(38, 129, 52)*/
-    color:rgb(255,255,255);
+    color: var(--principal-background);
   
   }
   
   .btn-simple:hover {
     font-weight: bold;
     color:var(--font-grid_buttons_hover);
-    background-color: white;
+    background-color: var(--principal-background);
     letter-spacing: 1px;
   }
   
@@ -342,7 +371,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    color: rgb(12, 36, 13);
+    color: var(--font-principal-color);
     margin-top: 40px;
   }
   
@@ -361,8 +390,8 @@
     margin: 0;
 }
   select:focus, input:focus, input[type]:focus {
-    border-color: rgb(0, 208, 255);/**/
-    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(0, 238, 255, 0.6);
+    border-color: rgb(157, 178, 191);/**/
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(157, 178, 191,0.5);
     outline: 0 none;
   }
 
@@ -445,7 +474,7 @@
       margin-bottom: 20px;
       width: 100%;
       height: 46px;
-      border: solid 1px var(--boton-border);
+      border: solid 1px var(--input-field-border);
       border-radius: 3px;
   }
 
@@ -454,7 +483,7 @@
     margin-bottom: 20px;
     width: 99%;
     height: 44px;
-    border: solid 1px var(--boton-border);
+    border: solid 1px var(--input-field-border);
     border-radius: 3px;
 }
 
@@ -463,7 +492,7 @@
   margin-bottom: 20px;
   width: 99%;
   height: 44px;
-  border: solid 1px var(--boton-border);
+  border: solid 1px var(--input-field-border);
   border-radius: 3px;
   padding: 0;
 }
@@ -525,7 +554,7 @@
       margin-bottom: 20px;
       width: 100%;
       height: 46px;
-      border: solid 1px var(--boton-border);
+      border: solid 1px var(--input-field-border);
       border-radius: 3px;
   }
 
@@ -534,7 +563,7 @@
     margin-bottom: 20px;
     width: 99%;
     height: 44px;
-    border: solid 1px var(--boton-border);
+    border: solid 1px var(--input-field-border);
     border-radius: 3px;
   }
 
@@ -543,7 +572,7 @@
     margin-bottom: 20px;
     width: 99%;
     height: 44px;
-    border: solid 1px var(--boton-border);
+    border: solid 1px var(--input-field-border);
     border-radius: 3px;
     padding: 0;
   }
