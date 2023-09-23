@@ -477,7 +477,7 @@ colores para fuentes
     .select_field {
       font-family: 'Sono', sans-serif;
       margin-bottom: 20px;
-      width: 100%;
+      width: 98%;
       height: 46px;
       border: solid 1px var(--input-field-border);
       border-radius: 3px;
@@ -486,7 +486,7 @@ colores para fuentes
   .date_field {
     font-family: 'Sono', sans-serif;
     margin-bottom: 20px;
-    width: 93%;
+    width: 90%;
     height: 44px;
     border: solid 1px var(--input-field-border);
     border-radius: 3px;
@@ -495,11 +495,11 @@ colores para fuentes
 .input_field {
   font-family: 'Sono', sans-serif;
   margin-bottom: 20px;
-  width: 99%;
+  width: 90%;
   height: 44px;
   border: solid 1px var(--input-field-border);
   border-radius: 3px;
-  padding: 0;
+
 }
 
 .right {
@@ -575,11 +575,10 @@ colores para fuentes
   .input_field {
     font-family: 'Sono', sans-serif;
     margin-bottom: 20px;
-    width: 99%;
+    width:94%;
     height: 44px;
     border: solid 1px var(--input-field-border);
     border-radius: 3px;
-    padding: 0;
   }
 
   .right {
