@@ -499,6 +499,7 @@ colores para fuentes
   height: 44px;
   border: solid 1px var(--input-field-border);
   border-radius: 3px;
+  padding-left: 20px;
 
 }
 
@@ -579,6 +580,8 @@ colores para fuentes
     height: 44px;
     border: solid 1px var(--input-field-border);
     border-radius: 3px;
+    padding-left: 20px;
+
   }
 
   .right {
