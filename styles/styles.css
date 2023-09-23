@@ -6,14 +6,8 @@
 
 colores para fuentes
 #27374D
-#526D82
-#9DB2BF
 #DDE6ED
 
-#040D12
-#183D3D
-#5C8374
-#93B1A6
 */
 
 :root {
@@ -103,10 +97,6 @@ colores para fuentes
 
 }
 
-
-
-
-  
   body {
     font-family: 'Ubuntu', sans-serif;
     /*background: rgb(0,129,238);*/
@@ -121,18 +111,15 @@ colores para fuentes
     display:flex;
     align-items:center;
   }
+
   h1 {
     width: 100%;
     text-align: center;
     font-family: 'Roboto Slab', serif;
     color: var(--font-principal-color); /* color pricipal fuentes*/
     letter-spacing: 3px;
-  
   }
-  /*
-  color: rgb(12, 36, 13);
-  */
-  
+
   #info_span {
     display: flex;
     width: 90%;
@@ -148,7 +135,6 @@ colores para fuentes
   
   #label_saldo_total {
     color:var(--font-principal-color); /*rgb(12, 36, 13)*/
-    
   }
   
   #fieldTotal {
@@ -265,16 +251,19 @@ colores para fuentes
     height: 46px;
     border: solid 1px var(--input-field-border);
     border-radius: 3px;
+    padding-left: 20px;
   }
 
   .date_field{
     font-family: 'Sono', sans-serif;
     margin-bottom: 20px;
-    width: 95%;
+    width: 90%;
     height: 44px;
     border: solid 1px var(--input-field-border);
     border-radius: 3px;
     background-color: var(--principal-background);
+    padding-left: 20px;
+    font-size: medium;
   }
   
   .input_field {
@@ -284,14 +273,14 @@ colores para fuentes
     height: 44px;
     border: solid 1px var(--input-field-border);
     border-radius: 3px;
-    padding: 0 10px;
+    padding-left: 20px;
     background-color: var(--principal-background);
+    font-size: medium;
 
-  
   }
 
   .right {
-    width: 97%;
+    width: 95%;
   }
   
   .col_buttons {
@@ -360,6 +349,12 @@ colores para fuentes
     border-radius: 5px;
   }
   
+  button:focus {
+    outline: none;
+    border-color: rgb(157, 178, 191);/**/
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(157, 178, 191,0.5);
+
+  }
   .align-right {
     text-align: right;
   }
@@ -385,9 +380,20 @@ colores para fuentes
     flex-direction: row;
   }
 
-  .form_item {
+/*  .form_item {
     width: 100%;
     margin: 0;
+}
+*/
+.form_item {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
 }
   select:focus, input:focus, input[type]:focus {
     border-color: rgb(157, 178, 191);/**/
@@ -399,7 +405,6 @@ colores para fuentes
     appearance: none;
     background-color: transparent;
     border: none;
-    padding: 0 1em 0 0;
     margin: 0;
     width: 100%;
     font-family: inherit;
@@ -481,7 +486,7 @@ colores para fuentes
   .date_field {
     font-family: 'Sono', sans-serif;
     margin-bottom: 20px;
-    width: 99%;
+    width: 93%;
     height: 44px;
     border: solid 1px var(--input-field-border);
     border-radius: 3px;
@@ -561,7 +566,7 @@ colores para fuentes
   .date_field {
     font-family: 'Sono', sans-serif;
     margin-bottom: 20px;
-    width: 99%;
+    width: 93%;
     height: 44px;
     border: solid 1px var(--input-field-border);
     border-radius: 3px;
