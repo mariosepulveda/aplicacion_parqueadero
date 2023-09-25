@@ -386,6 +386,6 @@ function limpiarTodo() {
 }
 
 window.onload = function () {
-  setInterval(actualizarTabla, 5000);
+  setInterval(actualizarTabla, 300000);
   //console.log("entro a actualizar tabla");
 }
