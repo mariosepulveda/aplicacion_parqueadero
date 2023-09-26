@@ -3,6 +3,8 @@ var placaField = document.getElementById("placa_input");
 var ciudad_field = document.getElementById("ciudad_field");
 var numCascosField = document.getElementById("type-select_cascos");
 var btnIngresar = document.getElementById("btnIngresar");
+
+var ciudad_origen = document.getElementById("ciudad_origen");
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -11,6 +13,10 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+
+var errorSpan = document.getElementById("errorSpan");
+var errorSpanw = document.getElementById("errorSpanw");
+
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
   modal.style.display = "block";
@@ -40,9 +46,7 @@ span.onclick = function () {
     localStorage.setItem("totalCaja",0);
   }
 
-/**para renderizar dinamicamente el datalist de las ciudades de origen */
-const ciudadesOrigen = ["Colombia", "Armenia", "Calarcá", "Pereira", "Dosquebradas", "Manizales", "Villa María", "Medellín", "Envigado","Cali","Palmira","Ibagué","Cajamarca"];
-addToDataList(ciudadesOrigen);
+
 
 // create and populate datalist
 function addToDataList(data) {
@@ -167,21 +171,36 @@ function validUppercase() {
   }
 
   if (tipoVehiculoField.value !== "") {
-    ciudad_field.disabled = false;
+    //ciudad_field.disabled = false;
 
     placaField.disabled = false;
     if (tipoVehiculoField.value === "Moto") {
-      ciudad_field.value = 'Colombia';
+
       //ciudad_field.disabled = true;
       numCascosField.disabled = false;
-      placaField.pattern = "^([A-Za-z]{3} [0-9]{2}[A-Za-z]{1}){1}?$"
+      placaField.pattern = "^([A-Za-z]{3} [0-9]{2}[A-Za-z]{1}){1}?$";
+      let regExp = '^([A-Za-z]{3} [0-9]{2}[A-Za-z]{1}){1}?$';
+      //llamar a la funcion validar mensaje de alerta
+      validarMensajeAlerta(regExp);
+      //ciudad_origen.options.length=0;
+      $("#ciudad_origen").find("option").remove().end();
+      /**para renderizar dinamicamente el datalist de las ciudades de origen */
+      let ciudadesOrigen = ["Extranjero","Colombia"];
+      addToDataList(ciudadesOrigen);
 
     } else {
-      //ciudad_field.disabled = false;
       ciudad_field.value = '';
       numCascosField.disabled = true;
       placaField.pattern = "^([A-Za-z]{3} [0-9]{3}){1}?$"
       numCascosField.value = 0;
+      let regExp = '^([A-Za-z]{3} [0-9]{3}){1}?$';
+      validarMensajeAlerta(regExp);
+
+      //ciudad_origen.options.length=0;
+      $("#ciudad_origen").find("option").remove().end(); //).append('<option value = "gfg">GeeksForGeeks</option>')
+    /**para renderizar dinamicamente el datalist de las ciudades de origen */
+    let ciudadesOrigen = ["Extranjero","Colombia", "Armenia", "Calarcá", "Pereira", "Dosquebradas", "Manizales", "Villa María", "Medellín", "Envigado","Cali","Palmira","Ibagué","Cajamarca"];
+    addToDataList(ciudadesOrigen);
     }
   } else if (tipoVehiculoField.value === '') {
     placaField.disabled = true;
@@ -189,6 +208,22 @@ function validUppercase() {
 
   }
 
+}
+
+function validarExtranjero () {
+  console.log('Entro a validar extranjero',ciudad_field.value);
+  if(ciudad_field.value === 'Extranjero'){
+    validarMensajeAlerta();
+  } else {
+    console.log('volver a validar la matricula');
+    if(tipoVehiculoField === 'Moto'){
+      let regExp = '^([A-Za-z]{3} [0-9]{2}[A-Za-z]{1}){1}?$';
+      validarMensajeAlerta(regExp);
+    }else{
+      let regExp = '^([A-Za-z]{3} [0-9]{3}){1}?$';
+      validarMensajeAlerta(regExp);
+    }
+  }
 }
 
 function limpiarCampos() {
@@ -199,7 +234,36 @@ function limpiarCampos() {
   ciudad_field.disabled = true;
 
   placaField.disabled = true;
+  validarMensajeAlerta();
 
+}
+
+var form_item = document.getElementById('form_item');
+
+function validarMensajeAlerta(regExp){
+  if(placaField.value !== '' && placaField.value !== undefined && placaField.value !== null){
+    if(placaField.value.match(regExp)){
+      console.log("exitosa");
+      errorSpan.classList.remove('active-error');
+      errorSpanw.classList.remove('active-error');//.error
+      form_item.classList.remove('error');
+      ciudad_field.disabled = false;
+      
+    } else {
+      console.log("incorrecto");
+      ciudad_field.disabled = false;
+
+      //placaField.classList.remove('error-span');
+      form_item.classList.add('error');
+
+      errorSpan.classList.add('active-error');
+      errorSpanw.classList.add('active-error');
+    }
+  }else {
+    
+    errorSpan.classList.remove('active-error');
+    errorSpanw.classList.remove('active-error');
+  }
 }
 
 /* function focusfun(){

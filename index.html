@@ -69,18 +69,24 @@
                             <option value="Carro"> Carro</option> <!--&#128665-->
                             <option value="Moto"> Moto</option><!--&#127949-->
                         </select>
+                        <span id="errorSpanw" class="error-span">
+                            <p> * Formato no válido</p>
+                        </span>
                     </div>
     
-                    <div class="form_item">
+                    <div id="form_item" class="form_item">
                         <label for="placa_input">Placa</label>
                         <input id="placa_input" class="date_field left" type="text" onblur="validUppercase()" placeholder="Ejemplo: XYZ 789" disabled="">
+                        <span id="errorSpan" class="error-span">
+                            <p>* Formato no válido</p>
+                        </span>
                     </div>
                 </div>
 
                 <div class="col_md">
                     <div class="form_item">
                         <label for="valor_input">Ciudad Origen</label>
-                        <input id="ciudad_field" type="text" multiple name="origen" list="ciudad_origen" class="input_field " placeholder="Ciudad / Origen" disabled>
+                        <input id="ciudad_field" type="text" multiple name="origen" list="ciudad_origen" class="input_field " placeholder="Ciudad / Origen" disabled onchange="validarExtranjero()">
                         <datalist id="ciudad_origen">
                           </datalist>
                         <!--<input id="valor_input" class="input_field" type="text" required pattern="^[0-9,.]*[0-9]+?$" onblur="myFunction()" onfocus="focusfun()">-->
@@ -114,6 +120,9 @@
     <script src="./totalValueRenderer.js"></script>
     <script src="./eliminarBtnRenderer.js"></script>
     <script src="./index.js"></script>
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
 </body>
 
 </html>
