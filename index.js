@@ -39,10 +39,10 @@ span.onclick = function () {
   } */
 
   if(localStorage.getItem("totalCaja")!== undefined && localStorage.getItem("totalCaja")!== null){
-    //console.log("entro a if:",window.localStorage.getItem("totalCaja"));
+    ////console.log("entro a if:",window.localStorage.getItem("totalCaja"));
     
   }else {
-    //console.log("entro a if:",window.localStorage.getItem("totalCaja"));
+    ////console.log("entro a if:",window.localStorage.getItem("totalCaja"));
     localStorage.setItem("totalCaja",0);
   }
 
@@ -189,7 +189,7 @@ function validUppercase() {
       addToDataList(ciudadesOrigen);
 
     } else {
-      ciudad_field.value = '';
+      //ciudad_field.value = '';
       numCascosField.disabled = true;
       placaField.pattern = "^([A-Za-z]{3} [0-9]{3}){1}?$"
       numCascosField.value = 0;
@@ -211,17 +211,19 @@ function validUppercase() {
 }
 
 function validarExtranjero () {
-  console.log('Entro a validar extranjero',ciudad_field.value);
+  //console.log('Entro a validar extranjero',ciudad_field.value);
   if(ciudad_field.value === 'Extranjero'){
     validarMensajeAlerta();
   } else {
-    console.log('volver a validar la matricula');
-    if(tipoVehiculoField === 'Moto'){
+    //console.log('volver a validar la matricula');
+    if(tipoVehiculoField.value === 'Moto'){
       let regExp = '^([A-Za-z]{3} [0-9]{2}[A-Za-z]{1}){1}?$';
       validarMensajeAlerta(regExp);
-    }else{
+    }else if( tipoVehiculoField.value === 'Carro'){
       let regExp = '^([A-Za-z]{3} [0-9]{3}){1}?$';
       validarMensajeAlerta(regExp);
+    } else {
+      ////console.log('Validar otra vez el alerta');
     }
   }
 }
@@ -242,25 +244,27 @@ var form_item = document.getElementById('form_item');
 
 function validarMensajeAlerta(regExp){
   if(placaField.value !== '' && placaField.value !== undefined && placaField.value !== null){
-    if(placaField.value.match(regExp)){
-      console.log("exitosa");
+    ciudad_field.disabled = false;
+
+    if(placaField.value.match(regExp) || (ciudad_field.value === 'Extranjero')){
+      //console.log("exitosa"+ciudad_field.value);
       errorSpan.classList.remove('active-error');
       errorSpanw.classList.remove('active-error');//.error
       form_item.classList.remove('error');
-      ciudad_field.disabled = false;
       
-    } else {
-      console.log("incorrecto");
-      ciudad_field.disabled = false;
-
+      
+    } else if(placaField.value.match(regExp) || (ciudad_field.value !== 'Extranjero')){
+      //console.log("incorrecto",ciudad_field.value);
       //placaField.classList.remove('error-span');
       form_item.classList.add('error');
 
       errorSpan.classList.add('active-error');
       errorSpanw.classList.add('active-error');
+    } else {
+      //console.log('caso contrario');
     }
   }else {
-    
+    form_item.classList.remove('error');
     errorSpan.classList.remove('active-error');
     errorSpanw.classList.remove('active-error');
   }
@@ -268,12 +272,13 @@ function validarMensajeAlerta(regExp){
 
 /* function focusfun(){
     var valueInt = elmentoInput.value;
-    console.log("valor del focus",valueInt);
+    //console.log("valor del focus",valueInt);
 }
  */
 function habilitarNumCascos() {
 
   placaField.value = "";
+  ciudad_field.value = "";
   placaField.disabled = true;
 
   validUppercase();
@@ -356,7 +361,7 @@ crearIngreso = () => {
 function actualizarTabla() {
   //onBtShowLoading();
   var tam = gridOptions.rowData.length;
-  //console.log("tamanio rowdata:",tam);
+  ////console.log("tamanio rowdata:",tam);
   var fecha_actual = new Date();
 
   var nuevoArray = [];
@@ -401,7 +406,7 @@ function actualizarTabla() {
       }
     }
 
-    //console.log("total: $",item.total);
+    ////console.log("total: $",item.total);
 
     nuevoArray.push(item);
     //window.localStorage.setItem("user", JSON.stringify(nuevoArray));// version vieja 
@@ -413,7 +418,7 @@ function actualizarTabla() {
 }
 
 function cerrarModal() {
-  //console.log("ENTRO A CERRAR MODAL");
+  ////console.log("ENTRO A CERRAR MODAL");
   modal.style.display = "none";
   ciudad_field.disabled = false;
   ciudad_field.value = '';
@@ -451,5 +456,5 @@ function limpiarTodo() {
 
 window.onload = function () {
   setInterval(actualizarTabla, 300000);
-  //console.log("entro a actualizar tabla");
+  ////console.log("entro a actualizar tabla");
 }
