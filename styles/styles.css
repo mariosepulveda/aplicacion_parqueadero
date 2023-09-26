@@ -246,7 +246,7 @@ colores para fuentes
 
   .select_field {
     font-family: 'Sono', sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     width: 92%;
     height: 46px;
     border: solid 1px var(--input-field-border);
@@ -256,7 +256,7 @@ colores para fuentes
 
   .date_field{
     font-family: 'Sono', sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     width: 90%;
     height: 44px;
     border: solid 1px var(--input-field-border);
@@ -268,7 +268,7 @@ colores para fuentes
   
   .input_field {
     font-family: 'Sono', sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     width: 88%;
     height: 44px;
     border: solid 1px var(--input-field-border);
@@ -310,11 +310,7 @@ colores para fuentes
     color:var(--font-grid_buttons_hover);
     background-color: var(--principal-background);
   }
-  
-  input:invalid {
-    border: rgb(252, 67, 31) solid 1px;
-    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(252, 55, 16, 0.5);
-  }
+
 
 
 
@@ -417,6 +413,31 @@ colores para fuentes
     width: 100%;
   }
   
+
+  .error-span {
+    display: none;
+    margin-bottom: 15px;
+
+  }
+  
+  .active-error {
+    display: block;
+    
+    color:rgb(252, 67, 31);
+    font-size: smaller;
+  }
+
+
+    .error input {
+    border: rgb(252, 67, 31) solid 1px;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(252, 55, 16, 0.5);
+  }
+  
+  #errorSpanw  p {
+    color:var(--principal-background);
+  } 
+
+
   /*
   button:focus {
     border-color: rgb(255, 255, 255);
