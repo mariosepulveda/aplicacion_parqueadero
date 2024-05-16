@@ -23,6 +23,17 @@ router.post('/auth',(req,res)=> {
 
 });
 
+router.get('/traerTodos',(req,res)=>{
+    console.log('body',req.body);
+    const data = res;
+    //consultar y validar que existe username y password
+    const user = {username: username};
+
+    const accessToken = generateAccessToken(user);
+    
+    res.json(data);
+})
+
 function generateAccessToken(user){
 
     return jwt.sign(user,process.env.SECRET, {expiresIn:'5m'});

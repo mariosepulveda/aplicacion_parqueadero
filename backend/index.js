@@ -8,7 +8,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 
 /*conection DB*/
-mongoose.connect('mongodb://localhost/ags_db')
+
+mongoose.connect(`${process.env.URL}`)
     .then(db => console.log('db is conected'))
     .catch(err => console.log(err))
 
@@ -47,12 +48,15 @@ app.use(express.urlencoded({extended:true}));
 
 
 
-app.get('/api',validateToken,(req,res)=>{
-    res.json({data:{
-        name:'Alan Brito',
-        age: 43,
-        phone_number:'545 54544 33'
-    }}); 
+app.get('/traerTodos', async (req,res)=>{
+    try {
+        const user = await User.find();
+        console.log("body",req.body);
+        res.status(200).json(user);//.json({ accessToken })
+        console.log(user);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
     
 });
 
@@ -97,7 +101,7 @@ app.post('/auth',async (req,res)=> {
         if (!validPassword) {
             return res.status(401).json({ message: 'Contraseña incorrecta' });
         }
-        const accessToken = jwt.sign({ userId: user._id }, process.env.SECRET, { expiresIn: '1h' });
+        const accessToken = jwt.sign({ userId: user._id }, process.env.SECRET, { expiresIn: '1h' });//generateAccessToken(req.body.user._id);//jwt.sign({ userId: user._id }, process.env.SECRET, { expiresIn: '1h' });
         res.status(200);//.json({ accessToken })
         res.render("main");
     } catch (error) {
@@ -118,7 +122,7 @@ app.post('/auth',async (req,res)=> {
 
 function generateAccessToken(user){
 
-    return jwt.sign(user,process.env.SECRET, {expiresIn:'5m'});
+    return jwt.sign(user,process.env.SECRET, {expiresIn:'30m'});
 }
 
 function validateToken(req,res,next){
