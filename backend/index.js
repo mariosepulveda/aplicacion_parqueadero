@@ -52,7 +52,8 @@ app.get('/traerTodos', async (req,res)=>{
     try {
         const user = await User.find();
         console.log("body",req.body);
-        res.status(200).json(user);//.json({ accessToken })
+        res.status(200);//.json(user);//.json({ accessToken })
+        res.render('users',{user});
         console.log(user);
     } catch (error) {
         res.status(500).json({ error: error.message });
