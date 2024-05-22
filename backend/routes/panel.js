@@ -27,12 +27,12 @@ router.get('/traerTodos',(req,res)=>{
     console.log('body',req.body);
     const data = res;
     //consultar y validar que existe username y password
-    const user = {username: username};
+    const transaction = {registration_number: registration_number};
 
-    const accessToken = generateAccessToken(user);
+    const accessToken = generateAccessToken(transaction);
     
     res.json(data);
-})
+});
 
 function generateAccessToken(user){
 

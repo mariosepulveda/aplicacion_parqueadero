@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const jwt = require('jsonwebtoken');
 const User = require('./models/User');
+const Transaction = require('./models/Transaction');
 require('dotenv').config();
 
 //conexion con la BD
@@ -50,11 +51,11 @@ app.use(express.urlencoded({extended:true}));
 
 app.get('/traerTodos', async (req,res)=>{
     try {
-        const user = await User.find();
+        const transaction = await Transaction.find();
         console.log("body",req.body);
         res.status(200);//.json(user);//.json({ accessToken })
-        res.render('users',{user});
-        console.log(user);
+        res.render('transactions',{transaction});
+        console.log(transaction);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
