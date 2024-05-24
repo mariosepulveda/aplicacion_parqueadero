@@ -34,7 +34,15 @@ const login = async (req,res) =>{
                 password:info.password,
                 token:token
             }
-            return res.status(200).render('main');//.json({status_code:200,data:usuario,message:'Acceso correcto'})
+
+            const responseType = req.headers['content-type'];
+            console.log('headers',responseType);
+            if(responseType === 'application/json'){
+                return res.status(200).json({status_code:200,data:usuario,message:'Acceso correcto'})
+            }else {
+                return res.render('main');
+            }
+            //
         }else{
             return res.status(400).json({status_code:400,message:validacion});
         }
