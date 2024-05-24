@@ -2,7 +2,15 @@ const express = require('express');
 const app = express();
 const jwt = require('jsonwebtoken');
 const User = require('./models/User');
-const Transaction = require('./models/Transaction');
+const cors = require('cors');
+//import rutasAuth from './routes/Auth.routes.mjs';
+
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+const rutasAuth = require('./routes/Auth.routes.js');
+
 require('dotenv').config();
 
 //conexion con la BD
@@ -20,13 +28,13 @@ app.set("view engine","ejs");
 
 
 //configurar rutas
-const ruta1 = require('./routes/login');
+app.use('/',require('./routes/login'));
 
-app.use('/',ruta1);
+app.use('/auth',rutasAuth);
+//app.use('/traerTodos',require('./routes/panel'));
 
 //
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+
 
 /**
  * app.get('/',(req,res)=>{
@@ -48,8 +56,7 @@ app.use(express.urlencoded({extended:true}));
  */
 
 
-
-app.get('/traerTodos', async (req,res)=>{
+/**app.get('/traerTodos', async (req,res)=>{
     try {
         const transaction = await Transaction.find();
         console.log("body",req.body);
@@ -60,7 +67,7 @@ app.get('/traerTodos', async (req,res)=>{
         res.status(500).json({ error: error.message });
     }
     
-});
+});*/
 
 
 /**
@@ -82,65 +89,7 @@ app.get('/traerTodos', async (req,res)=>{
 });
  */
 
-app.post('/auth',async (req,res)=> {
-    //const {username,password} = req.body;
-    //consultar y validar que existe username y password
-    //const user = {username: username};
 
-    //const accessToken = generateAccessToken(user);
-
-    try {
-        const user = await User.findOne({ username: req.body.username });
-        console.log("body",req.body);
-        if (!user) {
-            return res.status(401).json({ message: 'Usuario no encontrado' });
-        }
-
-        let validPassword = false;
-        req.body.password === user.password ? validPassword = true : validPassword = false;
-
-        //const validPassword = await bcrypt.compare(req.body.password, user.password);
-        if (!validPassword) {
-            return res.status(401).json({ message: 'Contraseña incorrecta' });
-        }
-        const accessToken = jwt.sign({ userId: user._id }, process.env.SECRET, { expiresIn: '1h' });//generateAccessToken(req.body.user._id);//jwt.sign({ userId: user._id }, process.env.SECRET, { expiresIn: '1h' });
-        res.status(200);//.json({ accessToken })
-        res.render("main");
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-    
-    
-
-/**
- *     res.header('authorization',accessToken).json({
-        message:'usuario autenticado',
-        token:accessToken
-    });
- */
-     
-
-});
-
-function generateAccessToken(user){
-
-    return jwt.sign(user,process.env.SECRET, {expiresIn:'30m'});
-}
-
-function validateToken(req,res,next){
-    const accessToken = req.headers['authorization'];
-    if(!accessToken){
-        res.send('Acceso denegado');
-    }
-
-    jwt.verify(accessToken,process.env.SECRET,(err, user)=>{
-        if(err){
-            res.send('Acceso denegado, el token expiró');
-        }else{
-            next();
-        }
-    });
-}
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,()=>{
