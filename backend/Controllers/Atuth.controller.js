@@ -1,24 +1,28 @@
 const jwt = require('jsonwebtoken');
 //import bcrypt from 'bcrypt';
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');// no hace falta porque el modulo de mongoose se utiliza en el modelo de User
 const config = require('../config');
+const UsuariosModel = require('../models/User');
 
-const users = new mongoose.Schema({
+/**
+ * se quito este codigo porque ahora el squema se trae desde el modelo de ./model/User
+ * const users = new mongoose.Schema({
     username:String,
     password:String,
     email:String
-},{versionKey:false});
+},{versionKey:false}); */
 
-const UsuariosModel = mongoose.model('users',users);
+//const UsuariosModel = mongoose.model('users',users);
 
 const login = async (req,res) =>{
     try {
         const {username,password} = req.body;
-        console.log("entro al try",req.body)
+        console.log("entro al try",req.body);
         var validacion = validar(username,'email',password);
         if(validacion == ''){
             let info = await UsuariosModel.findOne({username:username});
-            if(info.length === 0 || !(password === info.password)){
+            console.log('info',info);
+            if(info == null || info.length == 0 || !(password === info.password)){
                 return res.status(404).json({status:404,errors:['Usuario no existe']});
             }
 
@@ -47,6 +51,7 @@ const login = async (req,res) =>{
             return res.status(400).json({status_code:400,message:validacion});
         }
     } catch (error) {
+        console.log("entro al catch",error);
         return res.status(500).json({status_code:500,message:[error.message]})
     }   
 }
