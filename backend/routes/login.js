@@ -1,11 +1,11 @@
 const express = require('express');
-const router = express.Router();
+const rutas = express.Router();
 
 
-router.get("/",(req,res)=>{
+rutas.get("/",(req,res)=>{
     res.render("index");
 });
 
 
 
-module.exports = router;
+module.exports = rutas;

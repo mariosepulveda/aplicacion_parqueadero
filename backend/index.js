@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 const rutasAuth = require('./routes/Auth.routes.js');
+const rutasUsers = require('./routes/Users.routes.js');
 
 require('dotenv').config();
 
@@ -31,64 +32,10 @@ app.set("view engine","ejs");
 app.use('/',require('./routes/login'));
 
 app.use('/auth',rutasAuth);
+
+app.use('/usuarios',rutasUsers);
+
 //app.use('/traerTodos',require('./routes/panel'));
-
-//
-
-
-/**
- * app.get('/',(req,res)=>{
-    res.send(`
-    <html">
-    <head>
-        <title>login_form</title>
-    </head>
-    <body>
-        <form method="POST" action="/auth">
-            Nombre de usuario: <input type="text" name="text"><br/>
-            Password: <input type="password" name="password" id="input_pass"><br/>
-            <input type="submit" value="Iniciar sesión" />
-        </form>
-    </body>
-    </html>
-    `);
-});
- */
-
-
-/**app.get('/traerTodos', async (req,res)=>{
-    try {
-        const transaction = await Transaction.find();
-        console.log("body",req.body);
-        res.status(200);//.json(user);//.json({ accessToken })
-        res.render('transactions',{transaction});
-        console.log(transaction);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-    
-});*/
-
-
-/**
- * app.get('/login',(req,res)=>{
-    res.send(`
-    <html">
-    <head>
-        <title>login_form</title>
-    </head>
-    <body>
-        <form method="POST" action="/auth">
-            Nombre de usuario: <input type="text" name="text"><br/>
-            Password: <input type="password" name="password" id="input_pass"><br/>
-            <input type="submit" value="Iniciar sesión" />
-        </form>
-    </body>
-    </html>
-    `)
-});
- */
-
 
 
 const PORT = process.env.PORT || 3000;
