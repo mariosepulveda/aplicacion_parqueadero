@@ -13,15 +13,55 @@ const users = async (req, res) => {
          const token = jwt.sign({ id: info._id }, `${config.SECRET}`, { expiresIn: `${config.EXPIRES}` });
 
          if (info.lenth === 0) {
-            return res.status(404).json({ status: 404, data: [], mensage: 'No hay datos!', token: token });
+            return res.status(404).json({ status: 404, data: [], message: 'No hay datos!', token});
          } else {
-            return res.status(200).json({ status: 200, data: info, token, token });
+            return res.status(200)
+                     .json({ 
+                        status: 200,
+                        data: info,
+                        message:'Consulta Exitosa!',
+                        token,
+                     });
          }
 
-      }else if(serviceRoute === '/traerId'){
-         const {id}=req.body;
-         let info = await UsuariosModel.findOne({_id:id});
-         console.log('entro a traer Id',id,info);
+      } else if (serviceRoute === '/traerId') {
+
+         const { id } = req.body;
+         let info = await UsuariosModel.findOne({ _id: id });
+         const token = jwt.sign({ id: info._id }, `${config.SECRET}`, { expiresIn: `${config.EXPIRES}` });
+         console.log('entro a traer Id', id, info);
+         if (info.lenth === 0) {
+            return res.status(404)
+               .json({
+                  status: 404,
+                  data: [],
+                  message: 'No hay datos!',
+                  token,
+               });
+         } else {
+            return res.status(200).
+                     json({ 
+                        status: 200,
+                        data: info,
+                        message:'Consulta Exitosa!',
+                        token, 
+                     });
+         }
+      }else if(serviceRoute === '/crear'){
+            //insertOne() // insertMany()
+      } else if (serviceRoute === '/modificar') {
+                  //updateOne() // updateMany()
+      } else if (serviceRoute === '/eliminar') {
+            //UsuariosModel.deleteOne() //deleteMany()
+      } else {
+         console.log('entro al else');
+         return res.status(404)
+            .json({
+               status: 404,
+               data: [],
+               mesage: 'No se ha encontrado',
+               token: token,
+            });
       }
 
    } catch (error) {
